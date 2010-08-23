@@ -1,0 +1,2 @@
+shlibs:Depends=libc6 (>= 2.7), libsdl1.2debian (>= 1.2.10-1)
+misc:Depends=

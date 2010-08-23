@@ -1,0 +1,5 @@
+syntax: glob
+build-stamp
+debian/inputattach/*
+debian/joystick/*
+debian/evtest/*
