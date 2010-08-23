@@ -1,0 +1,10 @@
+# Automatically added by dh_installinit
+if [ -x "/etc/init.d/inputattach" ]; then
+	update-rc.d inputattach defaults >/dev/null
+	if [ -x "`which invoke-rc.d 2>/dev/null`" ]; then
+		invoke-rc.d inputattach start || true
+	else
+		/etc/init.d/inputattach start || true
+	fi
+fi
+# End automatically added section
