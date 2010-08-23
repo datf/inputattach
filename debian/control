@@ -35,7 +35,7 @@ Description: utility to monitor input device events
 Package: inputattach
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: joystick (<< 20051019-6)
+Conflicts: joystick (<< 20051019-6), dualnottouch
 Description: utility to connect serial-attached peripherals to the input subsystem
  inputattach connects legacy serial-attached input peripherals to the input
  subsystem: keyboards, mice, joysticks, touch-screens...
