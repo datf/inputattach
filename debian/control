@@ -1,13 +1,14 @@
-Source: joystick
+Source: dnserialattach
 Section: utils
 Priority: extra
-Maintainer: Stephen Kitt <steve@sk2.org>
+Maintainer: Luis Boullosa <luisboullosa@dualnot.com>
 Standards-Version: 3.8.3
 Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-6), libsdl1.2-dev
+Homepage: http://dualnot.com
 
-Package: inputattach
+Package: dnserialattach
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, dualnottouch
+Depends: dualnottouch (>= 0.1.0)
 Conflicts: joystick (<< 20051019-6)
 Description: utility to connect serial-attached peripherals to the input subsystem
  inputattach connects legacy serial-attached input peripherals to the input
