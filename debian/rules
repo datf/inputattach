@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-DEB_MAKE_BUILD_TARGET = jstest jscal inputattach evtest ffcfstress ffmvforce ffset fftest
+DEB_MAKE_BUILD_TARGET = inputattach
 
 include /usr/share/quilt/quilt.make
 

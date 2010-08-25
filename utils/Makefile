@@ -1,22 +1,4 @@
 #
-# $Id: Makefile,v 1.12 2004/10/19 07:51:52 vojtech Exp $
-#
-# Makefile for Linux input utilities
-#
-# (c) 1998-2000 Vojtech Pavlik
-#
-# Sponsored by SuSE
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -32,29 +14,10 @@
 CC		= gcc
 CFLAGS		= -g -O2 -Wall -I../linux/include
 
-PROGRAMS	= evtest inputattach jstest jscal fftest ffmvforce ffset \
-		  ffcfstress # acceltest
+PROGRAMS	= inputattach
 
 compile: $(PROGRAMS)
 
 clean:
 	$(RM) *.o *.swp $(PROGRAMS) *.orig *.rej map *~
 
-ffcfstress: ffcfstress.c
-	$(CC) -O2 -fno-implement-inlines -funsigned-char \
-	 -lm ffcfstress.c -o ffcfstress
-
-ffmvforce.o: ffmvforce.c
-	$(CC) -c $(CFLAGS) $(CPPFLAGS) $^ -o $@ `sdl-config --cflags`
-
-ffmvforce: ffmvforce.o
-	$(CC) $^ -o $@ $(LDFLAGS) -g -lm `sdl-config --libs`
-
-jscal: jscal.o
-	$(CC) $(CFLAGS) $(CPPFLAGS) -lm $^ -o $@
-
-gencodes: gencodes.c scancodes.h
-	$(CC) $(CFLAGS) $(CPPFLAGS) gencodes.c -o gencodes
-
-acceltest: acceltest.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -lm $^ -o $@

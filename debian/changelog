@@ -1,5 +1,5 @@
-joystick (0.8.0-1) unstable; urgency=low
+joystick (9.8.0-1) stable; urgency=low
 
   * Initial Release.
 
- -- Frederic Lepied <Lepied@debian.org>  Fri, 31 Jan 1997 22:13:59 +0100
+ -- David Tenreiro <davidtenreiro@dualnot.com>  Wed, 25 Aug 2010 22:13:59 +0100

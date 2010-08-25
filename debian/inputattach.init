@@ -31,7 +31,7 @@ case "$1" in
 	;;
   stop)
 	log_daemon_msg "Storing joystick calibration"
-    killall inputattach
+    killall -9 inputattach
 	exit 0
 	;;
   restart|force-reload)
