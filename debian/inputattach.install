@@ -1,1 +1,3 @@
 utils/inputattach usr/bin
+etc/05-evdev.conf etc/X11/xorg.conf.d
+etc/10-evtouch.conf etc/X11/xorg.conf.d
