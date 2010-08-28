@@ -1,3 +1,9 @@
+inputattach (20100828) stable; urgency=low
+
+  * Dependencia anadida xserver-xorg y ficheros en /etc/.
+
+ -- Luis Boullosa <luisboullosa@dualnot.com>  Wed, 25 Aug 2010 22:13:59 +0100
+
 inputattach (20100825) stable; urgency=low
 
   * Initial Release.
