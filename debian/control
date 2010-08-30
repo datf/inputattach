@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 7.0.50), quilt (>= 0.46-6), libsdl1.2-dev
 
 Package: inputattach
 Architecture: any
-Depends: xserver-xorg, dualnottouch
+Depends: xserver-xorg, dualnottouch, xserver-xorg-input-evtouch
 Conflicts: joystick (<< 20051019-6)
 Description: utility to connect serial-attached peripherals to the input subsystem
  inputattach connects legacy serial-attached input peripherals to the input
