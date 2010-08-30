@@ -25,13 +25,13 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 case "$1" in
   start)
 	log_daemon_msg "Restoring inputattach"
-    inputattach --dualnot /dev/ttyS4 --daemon
+	start-stop-daemon -d /usr/bin --start --background --pidfile /var/log/inputattach.pid  --make-pidfile --exec inputattach -- --dualnot /dev/ttyS4 --daemon
 	log_end_msg 0
 	exit 0
 	;;
   stop)
 	log_daemon_msg "Storing joystick calibration"
-    killall -9 inputattach
+	start-stop-daemon --stop --pidfile /var/log/inputattach.pid
 	exit 0
 	;;
   restart|force-reload)
