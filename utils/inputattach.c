@@ -359,8 +359,8 @@ static int fujitsu_init(int fd, unsigned long *id, unsigned long *extra)
 
 static int dualnot_init(int fd, unsigned long *id, unsigned long *extra)
 {
-    int idx = 0, i, line, first;
-    unsigned char cmd[20] = "\1FT\x0D", data;
+    int idx = 0, i, x, line, first;
+    unsigned char cmd[20] = "\1RF\x0D\1RD\x0D\1R\x0D \1FT\x0D", data;
 	if (ioctl(fd, TIOCMGET, &first))
 		return -1;
     line = TIOCM_RTS | TIOCM_DSR;
@@ -368,15 +368,18 @@ static int dualnot_init(int fd, unsigned long *id, unsigned long *extra)
         perror("Error setting DT bits...");
 		return -1;
     }
-    if (write(fd, cmd, 4) != 4) {
-        perror("Error writing to device... ");
-        return -1;
+    for (x=0; x < 16; x+=4)
+    {
+	if (write(fd, cmd+x, 4) != 4) {
+	    perror("Error writing to device... ");
+	    return -1;
+	}
+	while (!readchar(fd, &data, 1000))
+	    cmd[idx++] = data;
+	for (i = x; i < idx; ++i)
+	    printf("%02X", cmd[i]);
+	printf("\n");
     }
-    while (!readchar(fd, &data, 100))
-        cmd[idx++] = data;
-    for (i = 0; i < idx; ++i)
-        printf("%02X", cmd[i]);
-    printf("\n");
     idx = 0;
     memcpy(cmd, "\x01\x4D\x53\x0D", 4);
     if (write(fd, cmd, 4) != 4)
